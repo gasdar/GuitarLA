@@ -40,23 +40,23 @@ h3 {
 h1, h2, h3 {
     margin: 0;
 }
-[class$="__heading"] {
+[class*="heading"] {
     margin: 5rem 0;
     font-size: 4rem;
     line-height: 1.2;
     text-align: center;
     text-transform: capitalize;
-    font-weight: 700;
+    font-weight: 900;
     color: var(--primary);
 }
-[class$="__contenedor"],
+[class*="contenedor"],
 .contenedor {
     width: 95%;
     margin-inline: auto;
     max-width: 120rem;
 }
 
-/* APARTADO HEADER */
+/* PÁGINA INDEX: APARTADO HEADER */
 .notwebp.notavif .header {
     background-image: linear-gradient(to right, rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url('../img/header.jpg');
 }
@@ -266,6 +266,7 @@ h1, h2, h3 {
     box-shadow: 0px 0px 10px -4px rgb(0 0 0 / .3);
     padding: 2rem 1rem;
 }
+
 @media (min-width: 768px) {
     .producto {
         scroll-snap-align: center;
@@ -277,9 +278,30 @@ h1, h2, h3 {
         margin: 0;
     }
 }
+.producto__bloque {
+    margin-top: 5rem;
+    max-width: 80rem;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+}
+@media (min-width: 768px) {
+    .producto__bloque {
+        flex-direction: row;
+    }
+}
 .producto__box-img{
     flex-basis: 65rem;
     overflow: hidden;
+}
+.producto__box-img--unico {
+    flex-basis: 45rem;
+}
+@media (min-width: 768px) {
+    .producto__box-img--unico {
+        flex-basis: 65rem;
+    }
 }
 .producto__imagen {
     width: 100%;
@@ -289,6 +311,17 @@ h1, h2, h3 {
 }
 .producto__imagen:hover {
     transform: scale(1.05) rotate(5deg);
+}
+.producto__imagen--unico {
+    width: 20rem;
+}
+@media (min-width: 768px) {
+    .producto__imagen--unico {
+        width: 100%;
+    }
+}
+.producto__contenido--p {
+    padding: 0 2rem;
 }
 .producto__nombre {
     font-size: 3rem;
@@ -333,6 +366,45 @@ h1, h2, h3 {
 .producto__enlace:hover {
     background-color: var(--primary);
     color: var(--blanco);
+}
+.producto__formulario {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.producto__campo {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    column-gap: 2rem;
+    align-items: center;
+}
+.producto__cantidad {
+    padding: 1rem;
+    border: 0.2rem solid var(--primary);
+    font-size: 1.8rem;
+}
+.producto__cantidad:focus-visible {
+    outline: 0.2rem solid var(--primary);
+    border: none;
+}
+.producto__agregar-carrito {
+    display: block;
+    margin-top: 5rem;
+    background-color: var(--primary);
+    color: var(--blanco);
+    border: none;
+    padding: 2rem 5rem;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8rem;
+    transition-property: background-color;
+    transition-duration: 300ms;
+}
+.producto__agregar-carrito:hover {
+    background-color: var(--negro);
+    cursor: pointer;
 }
 
 /** Apartado de Cursos **/
@@ -422,12 +494,18 @@ h1, h2, h3 {
     .blog__grid {
         grid-template-columns: repeat(4, 1fr);
     }
+    .blog__grid--pagina {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 .entrada {
     max-width: 55rem;
     margin-inline: auto;
     scroll-snap-align: center;
     border: 0.1rem solid rgb(120 120 120 / 0.1);
+}
+.entrada__max-w {
+    max-width: 80rem;
 }
 .entrada__imagen {
     width: 100%;
@@ -528,4 +606,48 @@ h1, h2, h3 {
     font-size: 1.8rem;
     font-weight: 700;
     text-transform: capitalize;
+}
+
+/** PÁGINA NOSOTROS: APARTADO MAIN **/
+.nosotros__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 2rem;
+    width: 90%;
+    max-width: 60rem;
+    margin-inline: auto;
+}
+@media (min-width: 1024px) {
+    .nosotros__grid {
+        grid-template-columns: repeat(2, 1fr);
+        width: unset;
+        max-width: unset;
+        row-gap: unset;
+        column-gap: 5rem;
+    }
+}
+.nosotros__imagen {
+    width: 100%;
+    height: auto;
+    border: 3rem solid var(--blanco);
+    border-radius: .5rem;
+    box-shadow: 0px 0px 15px 3px rgb(0 0 0 / .3);
+    transition-property: transform;
+    transition-duration: 300ms;
+}
+.nosotros__imagen:hover {
+    transform: scale(1.05);
+}
+@media (min-width: 1024px) {
+    .nosotros__imagen:hover {
+        transform: scale(1.05) rotate(-2deg);
+    }
+    .nosotros__contenido {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+.nosotros__texto {
+    font-size: 1.8rem;
 }
